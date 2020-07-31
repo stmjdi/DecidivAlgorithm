@@ -5,12 +5,12 @@ import java.sql.*;
 import java.util.*;
 
 public class AladdinOpenAPI {
-	private static final String BASE_URL = "http://www.aladdin.co.kr/ttb/api/ItemSearch.aspx?";// »Ñ·ÁÁÙ ±âº» ÆäÀÌÁö URL
+	private static final String BASE_URL = "http://www.aladdin.co.kr/ttb/api/ItemSearch.aspx?";// ë¿Œë ¤ì¤„ ê¸°ë³¸ í˜ì´ì§€ URL
 	
 	final static String Driver = "oracle.jdbc.driver.OracleDriver";
 	final static String URL = "jdbc:oracle:thin:@localhost:1521:XE";
-	final static String user = "c##stmjdi04";
-	final static String psw = "oracle";
+	final static String user = "oracleID";
+	final static String psw = "oraclePWD";
 	
 	static Connection conn = null;
 	static PreparedStatement pstmt1 = null, pstmt2 = null;
@@ -33,167 +33,167 @@ public class AladdinOpenAPI {
 	
 	static String deciDiv(Item item) {
 		String result1;
-		if ((item.CategoryName).contains("¼Ò¼³") && (item.CategoryName).contains("ÇÑ±¹")) {
+		if ((item.CategoryName).contains("ì†Œì„¤") && (item.CategoryName).contains("í•œêµ­")) {
 			result1 = "810";
-		} else if ((item.CategoryName).contains("¼Ò¼³") && (item.CategoryName).contains("Áß±¹")) {
+		} else if ((item.CategoryName).contains("ì†Œì„¤") && (item.CategoryName).contains("ì¤‘êµ­")) {
 			result1 = "820";
-		} else if ((item.CategoryName).contains("¼Ò¼³") && (item.CategoryName).contains("ÀÏº»")) {
+		} else if ((item.CategoryName).contains("ì†Œì„¤") && (item.CategoryName).contains("ì¼ë³¸")) {
 			result1 = "830";
-		} else if ((item.CategoryName).contains("¼Ò¼³") && (item.CategoryName).contains("¿µ¹Ì")) {
+		} else if ((item.CategoryName).contains("ì†Œì„¤") && (item.CategoryName).contains("ì˜ë¯¸")) {
 			result1 = "840";
-		} else if ((item.CategoryName).contains("¼Ò¼³") && (item.CategoryName).contains("µ¶ÀÏ")) {
+		} else if ((item.CategoryName).contains("ì†Œì„¤") && (item.CategoryName).contains("ë…ì¼")) {
 			result1 = "850";
-		} else if ((item.CategoryName).contains("¼Ò¼³") && (item.CategoryName).contains("ÇÁ¶û½º")) {
+		} else if ((item.CategoryName).contains("ì†Œì„¤") && (item.CategoryName).contains("í”„ë‘ìŠ¤")) {
 			result1 = "860";
-		} else if ((item.CategoryName).contains("¼Ò¼³") && (item.CategoryName).contains("½ºÆäÀÎ")) {
+		} else if ((item.CategoryName).contains("ì†Œì„¤") && (item.CategoryName).contains("ìŠ¤í˜ì¸")) {
 			result1 = "870";
-		} else if ((item.CategoryName).contains("¼Ò¼³") && (item.CategoryName).contains("ÀÌÅ»¸®¾Æ")) {
+		} else if ((item.CategoryName).contains("ì†Œì„¤") && (item.CategoryName).contains("ì´íƒˆë¦¬ì•„")) {
 			result1 = "880";
-		} else if ((item.CategoryName).contains("¼Ò¼³") && (item.CategoryName).contains("±âÅ¸")) {
+		} else if ((item.CategoryName).contains("ì†Œì„¤") && (item.CategoryName).contains("ê¸°íƒ€")) {
 			result1 = "890";
-		} else if ((item.CategoryName).contains("ÇüÀÌ»óÇĞ")) {
+		} else if ((item.CategoryName).contains("í˜•ì´ìƒí•™")) {
 			result1 = "110";
-		} else if ((item.CategoryName).contains("ÀÎ½Ä·Ğ") || (item.CategoryName).contains("ÀÎ°ú·Ğ")||(item.CategoryName).contains("ÀÎ°£ÇĞ")) {
+		} else if ((item.CategoryName).contains("ì¸ì‹ë¡ ") || (item.CategoryName).contains("ì¸ê³¼ë¡ ")||(item.CategoryName).contains("ì¸ê°„í•™")) {
 			result1 = "120";
-		} else if ((item.CategoryName).contains("Ã¶ÇĞ")&&(item.CategoryName).contains("Ã¼°è")) {
+		} else if ((item.CategoryName).contains("ì² í•™")&&(item.CategoryName).contains("ì²´ê³„")) {
 			result1 = "130";
-		} else if ((item.CategoryName).contains("°æÇĞ")) {
+		} else if ((item.CategoryName).contains("ê²½í•™")) {
 			result1 = "140";
-		} else if ((item.CategoryName).contains("µ¿¾ç") && ((item.CategoryName).contains("»ç»ó")||(item.CategoryName).contains("Ã¶ÇĞ"))) {
+		} else if ((item.CategoryName).contains("ë™ì–‘") && ((item.CategoryName).contains("ì‚¬ìƒ")||(item.CategoryName).contains("ì² í•™"))) {
 			result1 = "150";
-		} else if ((item.CategoryName).contains("¼­¾ç") && ((item.CategoryName).contains("»ç»ó")||(item.CategoryName).contains("Ã¶ÇĞ"))) {
+		} else if ((item.CategoryName).contains("ì„œì–‘") && ((item.CategoryName).contains("ì‚¬ìƒ")||(item.CategoryName).contains("ì² í•™"))) {
 			result1 = "160";
-		} else if ((item.CategoryName).contains("³í¸®ÇĞ")) {
+		} else if ((item.CategoryName).contains("ë…¼ë¦¬í•™")) {
 			result1 = "170";
-		} else if ((item.CategoryName).contains("½É¸®ÇĞ")) {
+		} else if ((item.CategoryName).contains("ì‹¬ë¦¬í•™")) {
 			result1 = "180";
-		} else if ((item.CategoryName).contains("À±¸®ÇĞ") && ((item.CategoryName).contains("µµ´öÃ¶ÇĞ"))) {
+		} else if ((item.CategoryName).contains("ìœ¤ë¦¬í•™") && ((item.CategoryName).contains("ë„ë•ì² í•™"))) {
 			result1 = "190";
-		} else if ((item.CategoryName).contains("ºñ±³Á¾±³")) {
+		} else if ((item.CategoryName).contains("ë¹„êµì¢…êµ")) {
 			result1 = "210";
-		} else if ((item.CategoryName).contains("ºÒ±³")) {
+		} else if ((item.CategoryName).contains("ë¶ˆêµ")) {
 			result1 = "220";
-		} else if ((item.CategoryName).contains("±âµ¶±³")) {
+		} else if ((item.CategoryName).contains("ê¸°ë…êµ")) {
 			result1 = "230";
-		} else if ((item.CategoryName).contains("µµ±³")) {
+		} else if ((item.CategoryName).contains("ë„êµ")) {
 			result1 = "240";
-		} else if ((item.CategoryName).contains("Ãµµµ±³")) {
+		} else if ((item.CategoryName).contains("ì²œë„êµ")) {
 			result1 = "250";
-		} else if ((item.CategoryName).contains("½Åµµ")) {
+		} else if ((item.CategoryName).contains("ì‹ ë„")) {
 			result1 = "260";
-		} else if ((item.CategoryName).contains("ÈùµÎ±³")||(item.CategoryName).contains("ºê¶ó¸¸±³")) {
+		} else if ((item.CategoryName).contains("íŒë‘êµ")||(item.CategoryName).contains("ë¸Œë¼ë§Œêµ")) {
 			result1 = "270";
-		} else if ((item.CategoryName).contains("ÀÌ½½¶÷±³")) {
+		} else if ((item.CategoryName).contains("ì´ìŠ¬ëŒêµ")) {
 			result1 = "280";
-		} else if ((item.CategoryName).contains("±âÅ¸")&&(item.CategoryName).contains("Á¾±³")) {
+		} else if ((item.CategoryName).contains("ê¸°íƒ€")&&(item.CategoryName).contains("ì¢…êµ")) {
 			result1 = "290";
-		} else if ((item.CategoryName).contains("Åë°èÇĞ")) {
+		} else if ((item.CategoryName).contains("í†µê³„í•™")) {
 			result1 = "310";
-		} else if ((item.CategoryName).contains("°æÁ¦ÇĞ")) {
+		} else if ((item.CategoryName).contains("ê²½ì œí•™")) {
 			result1 = "320";
-		} else if ((item.CategoryName).contains("»çÈ¸ÇĞ")||(item.CategoryName).contains("»çÈ¸¹®Á¦")) {
+		} else if ((item.CategoryName).contains("ì‚¬íšŒí•™")||(item.CategoryName).contains("ì‚¬íšŒë¬¸ì œ")) {
 			result1 = "330";
-		} else if ((item.CategoryName).contains("Á¤Ä¡")) {
+		} else if ((item.CategoryName).contains("ì •ì¹˜")) {
 			result1 = "340";
-		} else if ((item.CategoryName).contains("ÇàÁ¤")) {
+		} else if ((item.CategoryName).contains("í–‰ì •")) {
 			result1 = "350";
-		} else if ((item.CategoryName).contains("¹ı·ü")) {
+		} else if ((item.CategoryName).contains("ë²•ë¥ ")) {
 			result1 = "360";
-		} else if ((item.CategoryName).contains("±³À°")) {
+		} else if ((item.CategoryName).contains("êµìœ¡")) {
 			result1 = "370";
-		} else if ((item.CategoryName).contains("Ç³½À")||(item.CategoryName).contains("¿¹Àı")||(item.CategoryName).contains("¹Î¼ÓÇĞ")) {
+		} else if ((item.CategoryName).contains("í’ìŠµ")||(item.CategoryName).contains("ì˜ˆì ˆ")||(item.CategoryName).contains("ë¯¼ì†í•™")) {
 			result1 = "380";
-		} else if ((item.CategoryName).contains("±¹¹æ")||(item.CategoryName).contains("±º»ç")) {
+		} else if ((item.CategoryName).contains("êµ­ë°©")||(item.CategoryName).contains("êµ°ì‚¬")) {
 			result1 = "390";
-		} else if ((item.CategoryName).contains("¼öÇĞ")) {
+		} else if ((item.CategoryName).contains("ìˆ˜í•™")) {
 			result1 = "410";
-		} else if ((item.CategoryName).contains("¹°¸®")) {
+		} else if ((item.CategoryName).contains("ë¬¼ë¦¬")) {
 			result1 = "420";
-		} else if ((item.CategoryName).contains("È­ÇĞ")) {
+		} else if ((item.CategoryName).contains("í™”í•™")) {
 			result1 = "430";
-		} else if ((item.CategoryName).contains("Ãµ¹®")||(item.CategoryName).contains("ÃµÃ¼")) {
+		} else if ((item.CategoryName).contains("ì²œë¬¸")||(item.CategoryName).contains("ì²œì²´")) {
 			result1 = "440";
-		} else if ((item.CategoryName).contains("ÁöÁú")) {
+		} else if ((item.CategoryName).contains("ì§€ì§ˆ")) {
 			result1 = "450";
-		} else if ((item.CategoryName).contains("±¤¹°")) {
+		} else if ((item.CategoryName).contains("ê´‘ë¬¼")) {
 			result1 = "460";
-		} else if ((item.CategoryName).contains("»ı¸í°úÇĞ")||(item.CategoryName).contains("»ı¹°ÇĞ")) {
+		} else if ((item.CategoryName).contains("ìƒëª…ê³¼í•™")||(item.CategoryName).contains("ìƒë¬¼í•™")) {
 			result1 = "470";
-		} else if ((item.CategoryName).contains("½Ä¹°")) {
+		} else if ((item.CategoryName).contains("ì‹ë¬¼")) {
 			result1 = "480";
-		} else if ((item.CategoryName).contains("µ¿¹°")) {
+		} else if ((item.CategoryName).contains("ë™ë¬¼")) {
 			result1 = "490";
-		} else if ((item.CategoryName).contains("È­ÇĞ")) {
-			if((item.CategoryName).contains("°øÇĞ"))result1 = "570";
+		} else if ((item.CategoryName).contains("í™”í•™")) {
+			if((item.CategoryName).contains("ê³µí•™"))result1 = "570";
 			else result1 = "510";
-		} else if ((item.CategoryName).contains("³ó¾÷")) {
+		} else if ((item.CategoryName).contains("ë†ì—…")) {
 			result1 = "520";
-		} else if ((item.CategoryName).contains("°ø¾÷")||(item.CategoryName).contains("°øÇĞ")) {
+		} else if ((item.CategoryName).contains("ê³µì—…")||(item.CategoryName).contains("ê³µí•™")) {
 			result1 = "530";
-		} else if ((item.CategoryName).contains("°ÇÃà")) {
+		} else if ((item.CategoryName).contains("ê±´ì¶•")) {
 			result1 = "540";
-		} else if ((item.CategoryName).contains("±â°è")) {
+		} else if ((item.CategoryName).contains("ê¸°ê³„")) {
 			result1 = "550";
-		} else if ((item.CategoryName).contains("Àü±â")||(item.CategoryName).contains("ÀüÀÚ")) {
+		} else if ((item.CategoryName).contains("ì „ê¸°")||(item.CategoryName).contains("ì „ì")) {
 			result1 = "560";
-		} else if ((item.CategoryName).contains("Á¦Á¶")) {
+		} else if ((item.CategoryName).contains("ì œì¡°")) {
 			result1 = "580";
-		} else if ((item.CategoryName).contains("»ıÈ°°úÇĞ")) {
+		} else if ((item.CategoryName).contains("ìƒí™œê³¼í•™")) {
 			result1 = "590";
-		} else if ((item.CategoryName).contains("Á¶°¢")||(item.CategoryName).contains("Á¶Çü")) {
+		} else if ((item.CategoryName).contains("ì¡°ê°")||(item.CategoryName).contains("ì¡°í˜•")) {
 			result1 = "620";
-		} else if ((item.CategoryName).contains("°ø¿¹")) {
+		} else if ((item.CategoryName).contains("ê³µì˜ˆ")) {
 			result1 = "630";
-		} else if ((item.CategoryName).contains("¼­¿¹")) {
+		} else if ((item.CategoryName).contains("ì„œì˜ˆ")) {
 			result1 = "640";
-		} else if ((item.CategoryName).contains("È¸È­")||(item.CategoryName).contains("µµÈ­")||(item.CategoryName).contains("µğÀÚÀÎ")) {
+		} else if ((item.CategoryName).contains("íšŒí™”")||(item.CategoryName).contains("ë„í™”")||(item.CategoryName).contains("ë””ìì¸")) {
 			result1 = "650";
-		} else if ((item.CategoryName).contains("»çÁø")) {
+		} else if ((item.CategoryName).contains("ì‚¬ì§„")) {
 			result1 = "660";
-		} else if ((item.CategoryName).contains("À½¾Ç")) {
+		} else if ((item.CategoryName).contains("ìŒì•…")) {
 			result1 = "670";
-		} else if ((item.CategoryName).contains("¿¹¼ú")) {
+		} else if ((item.CategoryName).contains("ì˜ˆìˆ ")) {
 			result1 = "680";
-		} else if ((item.CategoryName).contains("½ºÆ÷Ã÷")||(item.CategoryName).contains("¿À¶ô")) {
+		} else if ((item.CategoryName).contains("ìŠ¤í¬ì¸ ")||(item.CategoryName).contains("ì˜¤ë½")) {
 			result1 = "690";
-		} else if ((item.CategoryName).contains("ÇÑ±¹¾î")) {
+		} else if ((item.CategoryName).contains("í•œêµ­ì–´")) {
 			result1 = "710";
-		} else if ((item.CategoryName).contains("Áß±¹¾î")) {
+		} else if ((item.CategoryName).contains("ì¤‘êµ­ì–´")) {
 			result1 = "720";
-		} else if ((item.CategoryName).contains("ÀÏº»¾î")) {
+		} else if ((item.CategoryName).contains("ì¼ë³¸ì–´")) {
 			result1 = "730";
-		} else if ((item.CategoryName).contains("¿µ¾î")) {
+		} else if ((item.CategoryName).contains("ì˜ì–´")) {
 			result1 = "740";
-		} else if ((item.CategoryName).contains("µ¶ÀÏ¾î")) {
+		} else if ((item.CategoryName).contains("ë…ì¼ì–´")) {
 			result1 = "750";
-		} else if ((item.CategoryName).contains("ÇÁ¶û½º¾î")) {
+		} else if ((item.CategoryName).contains("í”„ë‘ìŠ¤ì–´")) {
 			result1 = "760";
-		} else if ((item.CategoryName).contains("½ºÆäÀÎ¾î")) {
+		} else if ((item.CategoryName).contains("ìŠ¤í˜ì¸ì–´")) {
 			result1 = "770";
-		} else if ((item.CategoryName).contains("ÀÌÅ»¸®¾Æ¾î")) {
+		} else if ((item.CategoryName).contains("ì´íƒˆë¦¬ì•„ì–´")) {
 			result1 = "780";
-		} else if ((item.CategoryName).contains("±âÅ¸")&&(item.CategoryName).contains("¾î")) {
+		} else if ((item.CategoryName).contains("ê¸°íƒ€")&&(item.CategoryName).contains("ì–´")) {
 			result1 = "790";
-		} else if ((item.CategoryName).contains("¾Æ½Ã¾Æ")) {
+		} else if ((item.CategoryName).contains("ì•„ì‹œì•„")) {
 			result1 = "910";
-		} else if ((item.CategoryName).contains("À¯·´")) {
+		} else if ((item.CategoryName).contains("ìœ ëŸ½")) {
 			result1 = "920";
-		} else if ((item.CategoryName).contains("¾ÆÇÁ¸®Ä«")) {
+		} else if ((item.CategoryName).contains("ì•„í”„ë¦¬ì¹´")) {
 			result1 = "930";
-		} else if ((item.CategoryName).contains("ºÏ¾Æ¸Ş¸®Ä«")) {
+		} else if ((item.CategoryName).contains("ë¶ì•„ë©”ë¦¬ì¹´")) {
 			result1 = "940";
-		} else if ((item.CategoryName).contains("³²¾Æ¸Ş¸®Ä«")) {
+		} else if ((item.CategoryName).contains("ë‚¨ì•„ë©”ë¦¬ì¹´")) {
 			result1 = "950";
-		} else if ((item.CategoryName).contains("¿À¼¼¾Æ´Ï¾Æ")) {
+		} else if ((item.CategoryName).contains("ì˜¤ì„¸ì•„ë‹ˆì•„")) {
 			result1 = "960";
-		} else if ((item.CategoryName).contains("Áö¸®")) {
+		} else if ((item.CategoryName).contains("ì§€ë¦¬")) {
 			result1 = "980";
-		} else if ((item.CategoryName).contains("À§ÀÎ")) {
+		} else if ((item.CategoryName).contains("ìœ„ì¸")) {
 			result1 = "990";
 		} else result1 = "000";
 		System.out.println(result1);
 		String result2 = (item.Author).substring(0,1);
-		Random random = new Random();//·£´ı³Ñ¹ö ¹Ş¾Æ¿À±â
+		Random random = new Random();//ëœë¤ë„˜ë²„ ë°›ì•„ì˜¤ê¸°
 		int rannum = random.nextInt(9);
 		getChosung chosung = new getChosung();
 		String cho = chosung.chosung(item.Title);
@@ -212,15 +212,15 @@ public class AladdinOpenAPI {
 	
 	public static String GetUrl(String searchWord) throws Exception {
 		Map<String, String> hm = new HashMap<String, String>();
-		hm.put("ttbkey", "ttbmomomo12051044002");
-		hm.put("Query", URLEncoder.encode(searchWord, "UTF-8"));// UTF-8Å¸ÀÔÀ¸·Î ÀÎÄÚµù
-		hm.put("QueryType", "Title");// Á¶»çÇÒ Å¸ÀÔ : Á¦¸ñÀ¸·Î Ã£±â(searching by book title)
-		hm.put("MaxResults", "100");// ÃÖ´ë·Î º¸¿©ÁÙ Á¶»ç°á°ú °¹¼ö(Maximum resultsets)
-		hm.put("start", "1");// º¸¿©ÁÖ±â ½ÃÀÛÇÒ °á°ú°ªÀÇ ¹øÈ£(1¹øÂ° ºÎÅÍ º¸¿©ÁÖ±â-showing from resultset no.1)
-		hm.put("SearchTarget", "Book");// Ã£¾Æº¼ Ä«Å×°í¸®(µµ¼­¿¡¼­¸¸ Ã£±â only lookup for books)
-		hm.put("output", "xml");// Ãâ·Â¹æ¹ı("JS"·Î ¾²¸é JSONÀ¸·Î Ãâ·Â. Return type. if "JS", returns in JSON form)
-		hm.put("Version", "20131101");// ¹öÀü-ÃÖ½Å¹öÀüÀ¸·Î ¼³Á¤(ver.20131101 is latest)
-		//ÁÖÀÇ. ±¹³» µµ¼­¸¸ °Ë»ö°¡´É.(BE ADVISED. Only korean books can be found.)
+		hm.put("ttbkey", "aladdinttbkey");
+		hm.put("Query", URLEncoder.encode(searchWord, "UTF-8"));// UTF-8íƒ€ì…ìœ¼ë¡œ ì¸ì½”ë”©
+		hm.put("QueryType", "Title");// ì¡°ì‚¬í•  íƒ€ì… : ì œëª©ìœ¼ë¡œ ì°¾ê¸°(searching by book title)
+		hm.put("MaxResults", "100");// ìµœëŒ€ë¡œ ë³´ì—¬ì¤„ ì¡°ì‚¬ê²°ê³¼ ê°¯ìˆ˜(Maximum resultsets)
+		hm.put("start", "1");// ë³´ì—¬ì£¼ê¸° ì‹œì‘í•  ê²°ê³¼ê°’ì˜ ë²ˆí˜¸(1ë²ˆì§¸ ë¶€í„° ë³´ì—¬ì£¼ê¸°-showing from resultset no.1)
+		hm.put("SearchTarget", "Book");// ì°¾ì•„ë³¼ ì¹´í…Œê³ ë¦¬(ë„ì„œì—ì„œë§Œ ì°¾ê¸° only lookup for books)
+		hm.put("output", "xml");// ì¶œë ¥ë°©ë²•("JS"ë¡œ ì“°ë©´ JSONìœ¼ë¡œ ì¶œë ¥. Return type. if "JS", returns in JSON form)
+		hm.put("Version", "20131101");// ë²„ì „-ìµœì‹ ë²„ì „ìœ¼ë¡œ ì„¤ì •(ver.20131101 is latest)
+		//ì£¼ì˜. êµ­ë‚´ ë„ì„œë§Œ ê²€ìƒ‰ê°€ëŠ¥.(BE ADVISED. Only korean books can be found.)
 		StringBuffer sb = new StringBuffer();
 		Iterator<String> iter = hm.keySet().iterator();
 		while (iter.hasNext()) {
@@ -232,7 +232,7 @@ public class AladdinOpenAPI {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String url = GetUrl("³ª¹«");//Ã¥Á¦¸ñÀ¸·Î Ã£À» ¶§ ³ÖÀ» Å°¿öµå ¶Ç´Â Á¦¸ñ ÀüÃ¼(Book's title or keyword)
+		String url = GetUrl("ë‚˜ë¬´");//ì±…ì œëª©ìœ¼ë¡œ ì°¾ì„ ë•Œ ë„£ì„ í‚¤ì›Œë“œ ë˜ëŠ” ì œëª© ì „ì²´(Book's title or keyword)
 		AladdinOpenAPIItemSearchHandler api1 = new AladdinOpenAPIItemSearchHandler();
 		api1.parseXml(url);
 		
@@ -240,8 +240,8 @@ public class AladdinOpenAPI {
 		int bid = findBid()+1;
 
 		for (Item item : api1.Items) {
-			if ((item.Author).contains("")) {// ÀÛ°¡·Î 1Â÷ ÇÊÅÍ¸µ. ÀÛ°¡¿¡ ¹Ş¾Æ¿Â ¹®ÀÚ¿­ÀÌ ÀÖ´ÂÁö·Î È®ÀÎ.(First filter by author)
-				if ((item.Publisher).contains("")) {// ÃâÆÇ»ç·Î 2Â÷ ÇÊÅÍ¸µ. ÃâÆÇ»ç·Î ¹Ş¾Æ¿Â ¹®ÀÚ¿­ÀÌ Æ÷ÇÔµÇ¾î ÀÖ´ÂÁö.(Second filter by Publisher)
+			if ((item.Author).contains("")) {// ì‘ê°€ë¡œ 1ì°¨ í•„í„°ë§. ì‘ê°€ì— ë°›ì•„ì˜¨ ë¬¸ìì—´ì´ ìˆëŠ”ì§€ë¡œ í™•ì¸.(First filter by author)
+				if ((item.Publisher).contains("")) {// ì¶œíŒì‚¬ë¡œ 2ì°¨ í•„í„°ë§. ì¶œíŒì‚¬ë¡œ ë°›ì•„ì˜¨ ë¬¸ìì—´ì´ í¬í•¨ë˜ì–´ ìˆëŠ”ì§€.(Second filter by Publisher)
 					System.out.println(item.Isbn);
 
 					String sql1 = "insert into booklist values(?,?,?,?,?,?,?,?,?,?,?)";
@@ -266,7 +266,7 @@ public class AladdinOpenAPI {
 						pstmt1.setString(11, item.Cover);
 
 						int res = pstmt1.executeUpdate();
-						System.out.println(res + "°³");
+						System.out.println(res + "ê°œ");
 						bid+=1;
 
 					} catch (SQLException e) {
